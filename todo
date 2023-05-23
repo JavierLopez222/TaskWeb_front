@@ -1,0 +1,35 @@
+const app = new Vue ({
+    el: '#app',
+    data: {
+        message: 'Login',
+        message2: 'Sign into your account',
+        inputUser: 'User',
+        inputPassword: 'Password',
+        messageHome: 'Home',
+        messageUserProfile: 'User Profile',
+        messageAdd: 'Addtask',
+        messageDescripcion: 'Here you will find the options offered by our TaskWeb application!',
+        messageDescripcionUserProfile: 'Here you will find all the information about your user!',
+        messageDescripcionAdd: 'Welcome to the add task section!',
+        titulo: 'Taskweb',
+        titulo2: 'Tu lista personalizada',
+        tareas: [],
+        nuevaTarea: ''
+    },
+    methods: {
+        agregarTarea: function(){
+            this.tareas.push({
+                nombre: this.nuevaTarea,
+                estado: false
+            });
+            console.log(this.tareas);
+            this.nuevaTarea = '';
+        },
+        editarTarea: function(index){
+            this.tareas[index].estado = true;
+        },
+        eliminarTarea: function(index){
+            this.tareas.splice(index, 1);
+        }
+    }
+})
